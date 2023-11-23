@@ -45,9 +45,9 @@ function checkAnswer() {
     let calculatedAnswer = calculateCorrectAnswer()
     let isCorrect = calculatedAnswer[0] === userAnswer
     if (isCorrect) {
-        alert("Hey, you got it right! :)")
+        incrementScore()
     } else {
-        alert(`Awwww... you answered ${userAnswer}. The correct Answer is ${calculatedAnswer[0]}!`)
+        incrementWrongAnswer()
     }
 
     runGame(calculatedAnswer[1])
@@ -69,11 +69,17 @@ function calculateCorrectAnswer() {
 }
 
 function incrementScore() {
-
+    let score = document.getElementById("score")
+    let scoreValue = parseInt(score.textContent)
+    scoreValue += 1
+    score.textContent = scoreValue
 }
 
 function incrementWrongAnswer() {
-
+    let wrongAnswerElement = document.getElementById("incorrect")
+    let wrongAnswerNumber= parseInt(wrongAnswerElement.textContent)
+    wrongAnswerNumber += 1
+    wrongAnswerElement.textContent = wrongAnswerNumber
 }
 
 function displayAdditionQuestion(operand1, operand2) {
