@@ -84,7 +84,7 @@ function calculateCorrectAnswer() {
     } else if (operator === "x") {
         return [operand1 * operand2, "multiply"]
     } else if (operator === "/") {
-        return [Math.round(operand1 / operand2), "division"]
+        return [operand1 / operand2, "division"]
     } else {
         alert(`Unimplemented operator ${operator}`)
         throw `Unimplemented operator ${operator}`
@@ -126,7 +126,11 @@ function displayMultiplyQuestion(operand1, operand2) {
 }
 
 function displayDivisionQuestion(operand1, operand2) {
-    document.getElementById("operand1").textContent = operand1 % 2 == 1 ? ++operand1 : operand1
-    document.getElementById("operand2").textContent = operand2 % 2 == 1 ? ++operand2 : operand2
+    //create random value
+    let randomNumber = Math.ceil(Math.random() * 10)
+    //multiply the operand2 by random value 
+
+    document.getElementById("operand1").textContent = operand2 * randomNumber
+    document.getElementById("operand2").textContent = operand2
     document.getElementById("operator").textContent = "/"
 }
